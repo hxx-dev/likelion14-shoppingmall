@@ -1,0 +1,98 @@
+import grayhoodieUrl from "../assets/images/gray_hoodie.png";
+import bluehoddieUrl from "../assets/images/blue_hoodie.png";
+import blackjerseyUrl from "../assets/images/black_jersey.png";
+import hoodiezipupUrl from "../assets/images/hoodie_zip_up.png";
+import grayshoesUrl from "../assets/images/gray_shoes.png";
+
+export const ProductData = [
+  {
+    productId: 1,
+    imageUrl: grayhoodieUrl,
+    title: "아이앱 스튜디오 25 후드 라이트 그레이",
+    price: "145,000원", priceNum: 145,
+    review: "리뷰 1,561", reviewNum: 1561,
+    rating: 4.5,
+    gender: "남성", color: "gray", size: ["M", "L"], category: "의류",
+  },
+  {
+    productId: 2,
+    imageUrl: bluehoddieUrl,
+    title: "아이앱 스튜디오 25 후드 라이트 블루",
+    price: "145,000원", priceNum: 145,
+    review: "리뷰 1,732", reviewNum: 1732,
+    rating: 4.7,
+    gender: "여성", color: "blue", size: ["S", "M"], category: "의류",
+  },
+  {
+    productId: 3,
+    imageUrl: blackjerseyUrl,
+    title: "아디다스 블랙 져지 2016",
+    price: "255,000원", priceNum: 255,
+    review: "리뷰 781", reviewNum: 781,
+    rating: 4.2,
+    gender: "남녀공용", color: "black", size: ["M", "L", "XL"], category: "의류",
+  },
+  {
+    productId: 4,
+    imageUrl: hoodiezipupUrl,
+    title: "슈프림 후드집업 30 딥블루",
+    price: "458,000원", priceNum: 458,
+    review: "리뷰 2,567", reviewNum: 2567,
+    rating: 4.8,
+    gender: "남녀공용", color: "denim", size: ["S", "M", "L"], category: "의류",
+  },
+  {
+    productId: 5,
+    imageUrl: grayshoesUrl,
+    title: "나이키 에어 그레이 하운드 25",
+    price: "235,000원", priceNum: 235,
+    review: "리뷰 231", reviewNum: 231,
+    rating: 3.9,
+    gender: "남녀공용", color: "gray", size: ["9", "10"], category: "신발",
+  },
+  {
+    productId: 6,
+    imageUrl: grayhoodieUrl,
+    title: "아이앱 스튜디오 25 후드 라이트 그레이",
+    price: "145,000원", priceNum: 145,
+    review: "리뷰 1,561", reviewNum: 1561,
+    rating: 4.5,
+    gender: "남성", color: "gray", size: ["M", "L"], category: "의류",
+  },
+  {
+    productId: 7,
+    imageUrl: bluehoddieUrl,
+    title: "아이앱 스튜디오 25 후드 라이트 블루",
+    price: "145,000원", priceNum: 145,
+    review: "리뷰 1,732", reviewNum: 1732,
+    rating: 4.7,
+    gender: "여성", color: "blue", size: ["S", "M"], category: "의류",
+  },
+  {
+    productId: 8,
+    imageUrl: blackjerseyUrl,
+    title: "아디다스 블랙 져지 2016",
+    price: "255,000원", priceNum: 255,
+    review: "리뷰 781", reviewNum: 781,
+    rating: 4.2,
+    gender: "남녀공용", color: "black", size: ["M", "L", "XL"], category: "의류",
+  },
+  {
+    productId: 9,
+    imageUrl: hoodiezipupUrl,
+    title: "슈프림 후드집업 30 딥블루",
+    price: "458,000원", priceNum: 458,
+    review: "리뷰 2,567", reviewNum: 2567,
+    rating: 4.8,
+    gender: "남녀공용", color: "denim", size: ["S", "M", "L"], category: "의류",
+  },
+  {
+    productId: 10,
+    imageUrl: grayshoesUrl,
+    title: "나이키 에어 그레이 하운드 25",
+    price: "235,000원", priceNum: 235,
+    review: "리뷰 231", reviewNum: 231,
+    rating: 3.9,
+    gender: "남녀공용", color: "gray", size: ["9", "10"], category: "신발",
+  },
+];
