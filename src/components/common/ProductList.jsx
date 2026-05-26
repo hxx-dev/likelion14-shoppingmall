@@ -1,81 +1,39 @@
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
-import grayhoodieUrl from "../../assets/images/gray_hoodie.png";
-import bluehoddieUrl from "../../assets/images/blue_hoodie.png";
-import blackjerseyUrl from "../../assets/images/black_jersey.png";
-import hoodiezipupUrl from "../../assets/images/hoodie_zip_up.png";
-import grayshoesUrl from "../../assets/images/gray_shoes.png";
 
-const Container = styled.div`
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 20px; 
-  padding: 20px 160px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  padding: 20px 160px 60px;
 `;
 
-export default function ProductList() {
+const EmptyMsg = styled.div`
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 0;
+  color: #aaa;
+  font-size: 15px;
+  font-family: Pretendard, sans-serif;
+`;
+
+export default function ProductList({ products = [] }) {
   return (
-    <Container>
-      <ProductCard 
-        imageUrl={grayhoodieUrl}
-        title="아이앱 스튜디오 25 후드 라이트 그레이"
-        price="145,000원"
-        review="리뷰 1,561"
-      />
-      <ProductCard 
-        imageUrl={bluehoddieUrl}
-        title="아이앱 스튜디오 25 후드 라이트 블루"
-        price="145,000원"
-        review="리뷰 1,732"
-      />
-      <ProductCard 
-        imageUrl={blackjerseyUrl}
-        title="아디다스 블랙 져지 2016"
-        price="255,000원"
-        review="리뷰 781"
-      />
-      <ProductCard 
-        imageUrl={hoodiezipupUrl}
-        title="슈프림 후드집업 30 딥블루"
-        price="458,000원"
-        review="리뷰 2,567"
-      />
-       <ProductCard 
-        imageUrl={grayshoesUrl}
-        title="나이키 에어 그레이 하운드 25"
-        price="235,000원"
-        review="리뷰 231"
-      />
-            <ProductCard 
-        imageUrl={grayhoodieUrl}
-        title="아이앱 스튜디오 25 후드 라이트 그레이"
-        price="145,000원"
-        review="리뷰 1,561"
-      />
-      <ProductCard 
-        imageUrl={bluehoddieUrl}
-        title="아이앱 스튜디오 25 후드 라이트 블루"
-        price="145,000원"
-        review="리뷰 1,732"
-      />
-      <ProductCard 
-        imageUrl={blackjerseyUrl}
-        title="아디다스 블랙 져지 2016"
-        price="255,000원"
-        review="리뷰 781"
-      />
-      <ProductCard 
-        imageUrl={hoodiezipupUrl}
-        title="슈프림 후드집업 30 딥블루"
-        price="458,000원"
-        review="리뷰 2,567"
-      />
-       <ProductCard 
-        imageUrl={grayshoesUrl}
-        title="나이키 에어 그레이 하운드 25"
-        price="235,000원"
-        review="리뷰 231"
-      />
-    </Container>
+    <Grid>
+      {products.length === 0 ? (
+        <EmptyMsg>조건에 맞는 상품이 없습니다.</EmptyMsg>
+      ) : (
+        products.map((product) => (
+          <ProductCard
+            key={product.productId}
+            productId={product.productId}
+            imageUrl={product.imageUrl} // ← imageUrl로 수정
+            title={product.title}
+            price={product.price}
+            review={product.review}
+          />
+        ))
+      )}
+    </Grid>
   );
 }

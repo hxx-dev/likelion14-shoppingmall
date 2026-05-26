@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const CardContainer = styled.div`
   display: flex;
@@ -7,9 +8,12 @@ const CardContainer = styled.div`
   gap: 5px;
 `;
 
-const ImageBox = styled.img`
+const ImageBox = styled.img.attrs({
+  referrerPolicy: "no-referrer",
+})`
   width: 181px;
   height: 237px;
+  object-fit: cover;
 `;
 
 const Title = styled.p`
@@ -44,10 +48,17 @@ const Review = styled.p`
   line-height: normal;
 `;
 
-export default function ProductCard({ imageUrl, title, price, review }) {
+export default function ProductCard({
+  productId,
+  imageUrl,
+  title,
+  price,
+  review,
+}) {
+  const navigate = useNavigate();
   return (
-    <CardContainer>
-      <ImageBox src={imageUrl} />
+    <CardContainer onClick={() => navigate(`/ProductDetail/${productId}`)}>
+      <ImageBox src={imageUrl} referrerPolicy="no-referrer" alt={title} />
       <Title>{title}</Title>
       <Price>{price}</Price>
       <Review>{review}</Review>

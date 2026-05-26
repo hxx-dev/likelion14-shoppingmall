@@ -1,72 +1,55 @@
 import styled from "styled-components";
-import vectorUrl from "../../assets/icons/Vector.svg";
 
-const FilterContainer = styled.div`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
-`;
-const FilterButton = styled.button`
+const GroupContainer = styled.div`
   display: flex;
-  width: 72px;
-  padding: 8px 11px 11px 10px;
-  justify-content: center;
+  gap: 10px;
   align-items: center;
-  gap: 5px;
-  border: none;
+`;
+const FilterBtn = styled.button`
+  padding: 8px 16px;
   border-radius: 20px;
-  background: #f2f2f2;
-  cusror: pointer;
+  border: 1.5px solid ${({ $hasFilter }) => ($hasFilter ? "#111" : "#ddd")};
+  background: ${({ $hasFilter }) => ($hasFilter ? "#111" : "#fff")};
+  color: ${({ $hasFilter }) => ($hasFilter ? "#fff" : "#555")};
+  font-size: 13px;
+  font-family: Pretendard, sans-serif;
+  font-weight: ${({ $hasFilter }) => ($hasFilter ? "600" : "400")};
+  cursor: pointer;
+  transition: all 0.15s;
   &:hover {
-    background: #f4f4f4;
+    border-color: #111;
+    background: ${({ $hasFilter }) => ($hasFilter ? "#333" : "#f5f5f5")};
+    color: ${({ $hasFilter }) => ($hasFilter ? "#fff" : "#111")};
   }
 `;
-const FilterText = styled.div`
-  width: 37px;
-  height: 14px;
-  flex-shrink: 0;
-  color: #616161;
-  font-family: Pretendard;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`;
 
-const FilterIcon = styled.img`
-  width: 10px;
-  height: 5px;
-  flex-shrink: 0;
-  aspect-ratio: 2/1;
-  stroke-width: 1px;
-  stroke: #858585;
-`;
-
-export default function Filter({
+export default function FilterGroup({
   onOpenGender,
   onOpenColor,
   onOpenSize,
   onOpenPrice,
   onOpenCategory,
+  selectedFilters = {},
 }) {
+  const hasFilter = (key) => selectedFilters[key]?.length > 0;
   return (
-    <FilterContainer>
-      <FilterButton onClick={onOpenGender}>
-        <FilterText>성별</FilterText> <FilterIcon src={vectorUrl} />
-      </FilterButton>
-      <FilterButton onClick={onOpenColor}>
-        <FilterText>색상</FilterText> <FilterIcon src={vectorUrl} />
-      </FilterButton>
-      <FilterButton onClick={onOpenSize}>
-        <FilterText>사이즈</FilterText> <FilterIcon src={vectorUrl} />
-      </FilterButton>
-      <FilterButton onClick={onOpenPrice}>
-        <FilterText>가격대</FilterText> <FilterIcon src={vectorUrl} />
-      </FilterButton>
-      <FilterButton onClick={onOpenCategory}>
-        <FilterText>종류</FilterText> <FilterIcon src={vectorUrl} />
-      </FilterButton>
-    </FilterContainer>
+    <GroupContainer>
+      <FilterBtn $hasFilter={hasFilter("gender")} onClick={onOpenGender}>
+        성별{hasFilter("gender") ? ` (${selectedFilters.gender.length})` : ""}
+      </FilterBtn>
+      <FilterBtn $hasFilter={hasFilter("color")} onClick={onOpenColor}>
+        색상{hasFilter("color") ? ` (${selectedFilters.color.length})` : ""}
+      </FilterBtn>
+      <FilterBtn $hasFilter={hasFilter("size")} onClick={onOpenSize}>
+        사이즈{hasFilter("size") ? ` (${selectedFilters.size.length})` : ""}
+      </FilterBtn>
+      <FilterBtn $hasFilter={hasFilter("price")} onClick={onOpenPrice}>
+        가격대{hasFilter("price") ? ` (${selectedFilters.price.length})` : ""}
+      </FilterBtn>
+      <FilterBtn $hasFilter={hasFilter("category")} onClick={onOpenCategory}>
+        종류
+        {hasFilter("category") ? ` (${selectedFilters.category.length})` : ""}
+      </FilterBtn>
+    </GroupContainer>
   );
 }
