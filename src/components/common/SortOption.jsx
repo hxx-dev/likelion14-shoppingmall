@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import sorticonUrl from "../../assets/icons/icon.svg";
+import sorticonUrl from "../../assets/icons/Icon.svg";
 
 const SortWrapper = styled.div`
   position: relative;
